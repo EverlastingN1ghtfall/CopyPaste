@@ -1,0 +1,26 @@
+void split(int series, int& record) {
+    ifstream A("A.txt");
+    ofstream B("B.txt");
+    ofstream C("C.txt");
+    string line;
+    int k = 0;
+    bool file = true;
+    while (getline(A, line)) {
+        if (file) {
+            record++;
+            B << line << endl;
+        }
+        else {
+            record++;
+            C << line << endl;
+        }
+        k++;
+        if (k == series) {
+            k = 0;
+            file = !file;
+        }
+    }
+    A.close();
+    B.close();
+    C.close();
+}
