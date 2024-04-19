@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <Windows.h>
-#include <windows.h>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -9,7 +8,7 @@ int main()
 {
     ifstream fin("data.txt");
     string line;
-    Sleep(1000);
+    Sleep(2000);
     while (getline(fin, line)) {
         for (char i : line) {
             INPUT inputs[1] = {};
