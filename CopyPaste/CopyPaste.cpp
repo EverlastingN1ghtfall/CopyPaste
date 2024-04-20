@@ -34,7 +34,7 @@ int main()
             }
             else {
                 switch (i) {
-                case 39:
+                case 39: //char(39) == '
                     key = VK_OEM_7;
                     break;
                 case '"':
@@ -118,7 +118,7 @@ int main()
                     key = 0x31;
                     shift = true;
                     break;
-                case 92:
+                case 92: //char(92) == \   
                     key = VK_OEM_5;
                     break;
                 case '|':
