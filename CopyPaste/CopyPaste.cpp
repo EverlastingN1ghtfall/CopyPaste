@@ -9,6 +9,7 @@ int main()
     ifstream fin("data.txt");
     string line;
     Sleep(2000);
+    int start = clock();
     while (getline(fin, line)) {
         for (char i : line) {
             INPUT inputs[1] = {};
@@ -29,8 +30,8 @@ int main()
 
         SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
     }
-    string a;
-    cin >> a;
+    int end = clock();
+    cout << end - start;
     return 0;
 }
 
