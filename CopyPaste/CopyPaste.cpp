@@ -4,14 +4,44 @@
 #include <string>
 using namespace std;
 
+void spctotab(string filename) {
+    ifstream fin(filename);
+    string line;
+    string* output = new string[1000]{ "" };
+    UINT lineInd = 0, skip = 0;
+    while (getline(fin, line)) {
+        bool ref = true;
+        for (char i : line) {
+            if (ref && skip == 0) {
+                if (i != ' ') {
+                    ref = false;
+                    output[lineInd] = output[lineInd] + i;
+                }
+                else {
+                    skip += 3;
+                    output[lineInd] = output[lineInd] + '\t';
+                }
+            }
+            else if (skip == 0) output[lineInd] = output[lineInd] + i;
+            else skip--;
+        }
+        lineInd++;
+    }
+    fin.close();
+    ofstream fout(filename);
+    for (int i = 0; i < lineInd; i++) fout << output[i] << '\n';
+    fout.close();
+}
+
 int main()
 {
+    spctotab("data.txt");
     ifstream fin("data.txt");
     string line;
     Sleep(2000);
     int start = clock();
     int kd = 60;
-    int typespd = 25;
+    int typespd = 100000;
 
     while (getline(fin, line)) {
         for (char i : line) {
