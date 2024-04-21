@@ -41,7 +41,7 @@ int main()
     Sleep(2000);
     int start = clock();
     int kd = 60;
-    int typespd = 100000;
+    int typespd = 5;
 
     while (getline(fin, line)) {
         for (char i : line) {
@@ -149,11 +149,18 @@ int main()
                     shift = true;
                     break;
                 case 92: //char(92) == \   
-                    key = VK_OEM_5;
+                    key = VK_OEM_102;
                     break;
                 case '|':
-                    key = VK_OEM_5;
+                    key = VK_OEM_102;
                     shift = true;
+                    break;
+                case '#':
+                    key = 0x33;
+                    shift = true;
+                    break;
+                case '\t':
+                    key = VK_TAB;
                     break;
                 }
             }
